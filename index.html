@@ -346,7 +346,7 @@ h3.card-title    { font-family: var(--head); font-size: var(--t-h3); font-weight
   padding: 1rem 0; overflow: hidden;
 }
 .trust__inner {
-  display: flex; align-items: center; gap: 1.5rem;
+  display: flex; align-items: center; justify-content: center; gap: 1.5rem;
   padding: 0 var(--gutter);
   overflow-x: auto; -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -516,7 +516,7 @@ h3.card-title    { font-family: var(--head); font-size: var(--t-h3); font-weight
   display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem;
 }
 @media (min-width: 860px) {
-  .about-grid { grid-template-columns: 1fr 2fr; gap: 3rem; }
+  .about-grid { grid-template-columns: 1fr; }
 }
 
 .about-photo {
@@ -1004,10 +1004,6 @@ select.form-input  {
       <h2 class="section-title">Ich bin kein Consultant. Ich bin Operator.</h2>
     </div>
     <div class="about-grid">
-      <div class="about-photo reveal">
-        <div class="about-photo__icon">👤</div>
-        <div class="about-photo__label">Foto folgt</div>
-      </div>
       <div class="reveal">
         <div class="about-text">
           <p>Seit 2011 bin ich selbstständig – nicht weil ich keine Vollzeitstelle bekommen hätte, sondern weil ich gemerkt habe, dass ich in drei Monaten mehr bewegen kann als viele Teams in einem Jahr. Nicht weil ich schneller bin. Sondern weil ich ohne Politik arbeite.</p>
@@ -1149,12 +1145,10 @@ select.form-input  {
               <label class="form-label" for="f-crm">CRM-System</label>
               <select id="f-crm" class="form-input">
                 <option value="" disabled selected>Welches System nutzt ihr?</option>
-                <option>Braze</option>
-                <option>Klaviyo</option>
-                <option>Brevo</option>
-                <option>Salesforce Marketing Cloud</option>
-                <option>Adobe Campaign / AJO</option>
-                <option>Anderes</option>
+                <option value="Braze">Braze</option>
+                <option value="Klaviyo">Klaviyo</option>
+                <option value="Brevo">Brevo</option>
+                <option value="Nicht bestätigt">Anderes / weiß nicht</option>
               </select>
             </div>
             <div class="form-group form-group--full">
@@ -1297,9 +1291,9 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
     name,
     email,
     company:  company || '',
-    crm:      crm     || 'Nicht angegeben',
+    crm:      crm     || 'Nicht bestätigt',
     message:  message || '',
-    source:   'boriskraemer.de',
+    source:   'Webseite Boris Kraemer',
     date:     new Date().toISOString()
   };
 
